@@ -74,7 +74,6 @@ flowchart TB
 1. ![Slack Icon](https://img.icons8.com/ios-filled/24/slack-new.png) Type `/kb Why is client XYZ’s spend missing for October 10-12?` in Slack
 2. ![Bot Reply Icon](https://img.icons8.com/ios-filled/24/filled-message.png) Bot instantly replies with:
    - ![Summary Icon](https://img.icons8.com/ios-filled/24/summary-list.png) Summary of the issue
-   - ![Steps Icon](https://img.icons8.com/ios-filled/24/steps.png) Recommended troubleshooting steps
    - ![SQL Icon](https://img.icons8.com/ios-filled/24/database.png) Example SQL query
    - ![Link Icon](https://img.icons8.com/ios-filled/24/link.png) Links to relevant documentation
 3. ![Rocket Icon](https://img.icons8.com/ios-filled/24/rocket.png) Engineer fixes the issue in minutes and gets back to building new features
@@ -83,19 +82,32 @@ flowchart TB
 
 ## How It Works (Simple)
 
-![Process Diagram](https://raw.githubusercontent.com/juandavidlozano-wprom/slack-kb-demo/main/assets/bot-process-diagram.png)
+<!-- Mermaid Process Diagram -->
+```mermaid
+sequenceDiagram
+    participant User
+    participant Slack
+    participant Bot
+    participant OpenAI
+    User->>Slack: /kb [your question]
+    Slack->>Bot: Send request
+    Bot->>OpenAI: Send question + KB
+    OpenAI-->>Bot: Return solution
+    Bot->>Slack: Post answer
+    Slack-->>User: Show response
+```
 
-- ![Slack Icon](https://img.icons8.com/ios-filled/24/slack-new.png) You ask a question in Slack
-- ![AI Bot Icon](https://img.icons8.com/ios-filled/24/artificial-intelligence.png) Bot finds the answer using AI and our KB
-- ![Reply Icon](https://img.icons8.com/ios-filled/24/filled-message.png) You get a clear, actionable response—no more searching
+- You ask a question in Slack
+- Bot finds the answer using AI and our KB
+- You get a clear, actionable response—no more searching
 
 ---
 
 ## Business Impact
-- ![Speed Icon](https://img.icons8.com/ios-filled/24/fast.png) **Faster bug fixes**: Less downtime, happier clients
-- ![Innovation Icon](https://img.icons8.com/ios-filled/24/idea.png) **More innovation**: Engineers focus on building, not fixing
-- ![Scale Icon](https://img.icons8.com/ios-filled/24/expand-arrow.png) **Scalable support**: AI answers routine questions 24/7
-- ![Onboarding Icon](https://img.icons8.com/ios-filled/24/training.png) **Better onboarding**: New hires get instant help
+- **Faster bug fixes**: Less downtime, happier clients
+- **More innovation**: Engineers focus on building, not fixing
+- **Scalable support**: AI answers routine questions 24/7
+- **Better onboarding**: New hires get instant help
 
 ---
 
