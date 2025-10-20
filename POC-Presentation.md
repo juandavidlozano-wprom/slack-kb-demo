@@ -35,7 +35,27 @@ We built a proof-of-concept Slack bot that uses AI to help our team fix bugs fas
 
 ## Demo Example: Value-Added vs. Non-Value-Added
 
-![Comparison Diagram](https://raw.githubusercontent.com/juandavidlozano-wprom/slack-kb-demo/main/assets/value-vs-nonvalue-diagram.png)
+<!-- Simple Markdown Comparison Diagram -->
+
+|                | Non-Value-Added Work         | Value-Added Work           |
+|----------------|-----------------------------|----------------------------|
+| **Goal**       | Fixing bugs, troubleshooting | Building new features      |
+| **Process**    | Manual search, repeat steps | Automated, AI-powered help |
+| **Time Spent** | 30+ min per issue           | <5 min per issue           |
+| **Impact**     | No new product value        | Innovation, client value   |
+
+```
++--------------------------+        +--------------------------+
+|  Non-Value-Added         |        |   Value-Added            |
+|--------------------------|        |--------------------------|
+|  Bug fixing              |        |  Feature building        |
+|  Manual troubleshooting  |        |  Analytics & automation  |
+|  Searching docs          |        |  Client insights         |
++--------------------------+        +--------------------------+
+         |                                 |
+         v                                 v
+   Time lost, no new value         Innovation, growth
+```
 
 **Scenario:**
 - A data engineer notices Google Ads spend data is missing for a client in the dashboard.
