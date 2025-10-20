@@ -35,7 +35,23 @@ We built a proof-of-concept Slack bot that uses AI to help our team fix bugs fas
 
 ## Demo Example: Value-Added vs. Non-Value-Added
 
-<!-- Simple Markdown Comparison Diagram -->
+<!-- Mermaid Comparison Diagram -->
+
+```mermaid
+flowchart TB
+    subgraph Non-Value-Added
+        A1[Bug fixing]
+        A2[Manual troubleshooting]
+        A3[Searching docs]
+    end
+    subgraph Value-Added
+        B1[Feature building]
+        B2[Analytics & automation]
+        B3[Client insights]
+    end
+    Non-Value-Added -->|Time lost, no new value| C1[ ]
+    Value-Added -->|Innovation, growth| C2[ ]
+```
 
 |                | Non-Value-Added Work         | Value-Added Work           |
 |----------------|-----------------------------|----------------------------|
@@ -99,6 +115,7 @@ We built a proof-of-concept Slack bot that uses AI to help our team fix bugs fas
 ## Try It Yourself
 - ![Slack Icon](https://img.icons8.com/ios-filled/24/slack-new.png) Go to Slack, type `/kb [your question]`
 - ![Lightning Icon](https://img.icons8.com/ios-filled/24/lightning-bolt.png) See how quickly you get an answer!
+- [Visit the Slack workspace here](https://test-auto-slack-kb.slack.com/)
 
 ---
 
