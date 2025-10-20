@@ -87,8 +87,8 @@ flowchart TB
 sequenceDiagram
     participant User
     participant Slack
-    participant Bot
-    participant OpenAI
+    participant Bot (Node.js/Express)
+    participant OpenAI (openai-node)
     User->>Slack: /kb [your question]
     Slack->>Bot: Send request
     Bot->>OpenAI: Send question + KB
@@ -96,6 +96,23 @@ sequenceDiagram
     Bot->>Slack: Post answer
     Slack-->>User: Show response
 ```
+
+### Tech Stack Used
+- **Node.js & Express**: Main server and bot logic
+- **body-parser**: Parses Slack requests
+- **dotenv**: Manages environment variables
+- **openai-node**: Connects to OpenAI API
+- **axios**: Sends delayed responses to Slack
+- **fs & path**: Reads KB files from disk
+- **Ngrok**: Exposes local server for Slack integration
+- **Slack API & Slack App**: Receives and sends messages, slash command integration
+
+We installed several libraries to enable these features:
+- express
+- body-parser
+- dotenv
+- openai
+- axios
 
 - You ask a question in Slack
 - Bot finds the answer using AI and our KB
