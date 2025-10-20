@@ -60,19 +60,6 @@ flowchart TB
 | **Time Spent** | 30+ min per issue           | <5 min per issue           |
 | **Impact**     | No new product value        | Innovation, client value   |
 
-```
-+--------------------------+        +--------------------------+
-|  Non-Value-Added         |        |   Value-Added            |
-|--------------------------|        |--------------------------|
-|  Bug fixing              |        |  Feature building        |
-|  Manual troubleshooting  |        |  Analytics & automation  |
-|  Searching docs          |        |  Client insights         |
-+--------------------------+        +--------------------------+
-         |                                 |
-         v                                 v
-   Time lost, no new value         Innovation, growth
-```
-
 **Scenario:**
 - A data engineer notices Google Ads spend data is missing for a client in the dashboard.
 
