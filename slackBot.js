@@ -17,25 +17,16 @@ const openai = new OpenAI({
   apiKey: process.env.OPENAI_API_KEY,
 });
 
-// Helper to load all KB markdown files from GitHub
-async function loadKBFilesFromGitHub() {
-  const githubToken = process.env.GITHUB_TOKEN;
-  const githubRepo = process.env.GITHUB_REPO; // e.g. "owner/repo"
-  const kbPath = process.env.KB_PATH || 'kb'; // folder in repo
+// Helper to load all KB markdown files from local kb/ directory
+function loadKBFiles() {
+  const kbDir = path.join(__dirname, 'kb');
   let kbContent = '';
-  try {
-    // List files in the KB directory
-    const apiUrl = `https://api.github.com/repos/${githubRepo}/contents/${kbPath}`;
-    const headers = githubToken ? { Authorization: `token ${githubToken}` } : {};
-    const listResp = await axios.get(apiUrl, { headers });
-    const files = listResp.data.filter(f => f.name.endsWith('.md'));
+  if (fs.existsSync(kbDir)) {
+    const files = fs.readdirSync(kbDir).filter(f => f.endsWith('.md'));
     for (const file of files) {
-      // Fetch raw file content
-      const fileResp = await axios.get(file.download_url, { headers });
-      kbContent += `\n---\nFile: ${file.name}\n${fileResp.data}`;
+      const content = fs.readFileSync(path.join(kbDir, file), 'utf8');
+      kbContent += `\n---\nFile: ${file}\n${content}`;
     }
-  } catch (err) {
-    console.error('Error loading KB files from GitHub:', err.message);
   }
   return kbContent;
 }
@@ -63,7 +54,7 @@ app.post('/slack/kb', async (req, res) => {
   });
 
   // Continue with OpenAI/KB lookup in the background
-  const kbContent = await loadKBFilesFromGitHub();
+  const kbContent = loadKBFiles();
   let aiResponse = 'Sorry, I could not process your request.';
   try {
     console.log('Calling OpenAI API...');
